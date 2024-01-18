@@ -31,6 +31,7 @@ def cap_recognition(model, test_root, c_time=10):
                 for faceRect in facerects:  # 单独框出每一张人脸
                     x, y, w, h = faceRect
                     img = frame[y-10:y+h+10, x-10:x+w+10]
+                    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)  # cv2 RGB通道为BGR 影响效果
                     # Img = Image.fromarray(img)
                     # Img.show()  # cv2 RGB通道为BGR 影响效果
                     img_x = img_to_x(img)
